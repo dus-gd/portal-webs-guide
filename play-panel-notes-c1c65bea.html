@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · hth 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #222;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* hero 区域 — 不张扬，清晰 */
+        .hero {
+            background: #ffffff;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px #e6e9ed;
+            margin-bottom: 2.2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1e2a36;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero .sub {
+            max-width: 680px;
+            margin: 0 auto;
+            color: #4a5568;
+            font-size: 1rem;
+        }
+
+        .hero .sub a {
+            color: #1e2a36;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #bdc3cc;
+            transition: border-color 0.2s;
+        }
+
+        .hero .sub a:hover {
+            border-color: #1e2a36;
+        }
+
+        /* 卡片通用 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.6rem;
+            flex: 1 1 260px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 0 0 1px #eef0f2;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05), 0 0 0 1px #d9dee3;
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+            border-left: 3px solid #9aa6b5;
+            padding-left: 0.6rem;
+        }
+
+        .card p, .card li {
+            color: #2d3a46;
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding: 0.25rem 0 0.25rem 1.2rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #7b8a9c;
+            font-weight: 700;
+        }
+
+        /* 场景 + 提示混合卡片 */
+        .wide-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 0 0 1px #eef0f2;
+            margin-bottom: 1.8rem;
+        }
+
+        .wide-card h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .wide-card .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .flex-row > div {
+            flex: 1 1 180px;
+        }
+
+        .flex-row h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .flex-row p {
+            font-size: 0.93rem;
+            color: #3d4a57;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #edf1f5;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #2d3f52;
+            margin-right: 0.3rem;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.6rem 1.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 0 0 1px #eef0f2;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #1f2937;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #f0f2f4;
+            padding: 0.8rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1a2a3a;
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item p {
+            color: #3e4c5c;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .faq-item a {
+            color: #1e2a36;
+            text-decoration: none;
+            border-bottom: 1px solid #cdd5de;
+        }
+
+        .faq-item a:hover {
+            border-color: #1e2a36;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2.8rem;
+            color: #6f7e8e;
+            font-size: 0.85rem;
+            border-top: 1px solid #e0e4e9;
+            padding-top: 1.8rem;
+        }
+
+        .footer-note a {
+            color: #2d4055;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd2db;
+        }
+
+        .footer-note a:hover {
+            border-color: #2d4055;
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 2rem 1rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .card { flex: 1 1 100%; }
+            .wide-card .flex-row { flex-direction: column; gap: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 摘要 -->
+    <div class="hero">
+        <h1>使用 <a href="https://play-panel-hth.com">hth</a> · 简明指南</h1>
+        <div class="sub">
+            一个面向日常操作与信息管理的工具界面。本文档整理自产品说明与常见用法，帮助你快速了解核心功能与使用思路。
+        </div>
+    </div>
+
+    <!-- 亮点卡片 3枚 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>摘要</h2>
+            <p>产品围绕「灵活配置」与「清晰反馈」两个目标设计。界面以面板形式组织常用操作，减少跳转层级。适合需要频繁查看状态或调整参数的场景。</p>
+        </div>
+        <div class="card">
+            <h2>亮点</h2>
+            <ul>
+                <li>模块化布局：每个功能区独立，可快速定位</li>
+                <li>状态提示直观：关键信息使用颜色与徽标区分</li>
+                <li>响应式适配：桌面与移动端均保留核心交互</li>
+                <li>低学习成本：操作路径符合一般后台工具习惯</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>使用建议</h2>
+            <p>建议先浏览概况面板，了解主要数据区域。常用功能可固定为快捷入口。遇到不熟悉的术语时，可参考页面内的提示文字或工具说明。</p>
+        </div>
+    </div>
+
+    <!-- 场景 + 提示 混合 -->
+    <div class="wide-card">
+        <h2>典型使用场景</h2>
+        <div class="flex-row">
+            <div>
+                <h3><span class="badge">日常</span> 快速查看</h3>
+                <p>打开 <a href="https://play-panel-hth.com">hth</a> 后，仪表区会展示预设的关键指标，无需额外操作即可获得概览。</p>
+            </div>
+            <div>
+                <h3><span class="badge">配置</span> 调整参数</h3>
+                <p>设置页面按功能分组，修改后即时生效。推荐在非高峰时段做较大调整，降低误操作影响。</p>
+            </div>
+            <div>
+                <h3><span class="badge">提醒</span> 访问须知</h3>
+                <p>部分功能可能受浏览器缓存影响，如遇显示异常可尝试刷新页面。涉及账号操作时，请确认网络环境安全。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>常见问题 · 摘要</h2>
+        <div class="faq-item">
+            <strong>界面上的数据多久更新一次？</strong>
+            <p>大部分面板数据在每次页面加载时刷新。部分实时模块会按固定间隔自动拉取，间隔时长以具体模块标注为准。</p>
+        </div>
+        <div class="faq-item">
+            <strong>如何快速定位某个功能？</strong>
+            <p>顶部导航栏按类别组织了主要入口。如果找不到，可以尝试页面内的搜索框（如果当前版本提供）。</p>
+        </div>
+        <div class="faq-item">
+            <strong>使用 <a href="https://play-panel-hth.com">hth</a> 是否需要安装额外软件？</strong>
+            <p>无需安装。直接在浏览器中打开网址即可使用。建议使用最新版 Chrome、Edge 或 Firefox 以获得完整体验。</p>
+        </div>
+    </div>
+
+    <!-- 底线说明 —— 可信但克制 -->
+    <div class="footer-note">
+        <p>本页为独立产品说明，内容基于公开信息与通用使用经验整理。具体功能以实际页面为准。</p>
+        <p style="margin-top: 0.6rem;">产品名称：<a href="https://play-panel-hth.com">hth</a> · 界面介绍</p>
+    </div>
+
+</div>
+</body>
+</html>
